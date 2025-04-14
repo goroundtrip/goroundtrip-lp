@@ -8,17 +8,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
       body {
         font-family: 'Inter', sans-serif;
       }
+      .floating-icons {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .floating-icons a {
+        animation: pulse 2s infinite;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+      }
     </style>
   </head>
   <body class="bg-white text-gray-800">
+    <!-- Floating Contact Icons -->
+    <div class="floating-icons">
+      <a href="tel:+919019338080" class="bg-white text-indigo-700 p-3 rounded-full hover:bg-gray-200 transition">
+        <i data-lucide="phone" class="w-6 h-6"></i>
+      </a>
+      <a href="https://wa.me/+919019338080" target="_blank" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+      </a>
+    </div>
+
+    <!-- Header/Navbar -->
+    <header class="absolute top-0 left-0 w-full flex justify-between items-center p-4 z-10">
+      <div class="text-white font-bold text-xl">GoRoundTrip</div>
+    </header>
+
     <!-- Hero Section -->
     <section class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('/landing-bg.jpg');">
       <div class="bg-black bg-opacity-60 p-8 rounded-xl text-white text-center max-w-2xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Experience the Future of Travel</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+          <span class="text-yellow-400">Travel,</span> <span class="text-white">the Gen Next Style</span>
+        </h1>
         <p class="text-lg mb-6">Seamlessly connecting travelers, agents and crypto payments on one revolutionary platform.</p>
         <div class="space-x-4">
           <button onclick="document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });" class="bg-white text-indigo-700 font-semibold py-2 px-6 rounded hover:bg-gray-200 transition">Join the Waitlist</button>
@@ -96,5 +135,9 @@
       </div>
       <div class="text-center text-gray-500 mt-10">&copy; 2025 GoRoundTrip. All rights reserved.</div>
     </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
