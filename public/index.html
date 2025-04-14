@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoRoundTrip - Travel, Gen Next Style!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url('https://source.unsplash.com/1600x900/?hiking,backpacker,mountains') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    button, a {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+    }
+    form {
+      display: none;
+      flex-direction: column;
+      background: white;
+      color: black;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    form input, form textarea {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>GoRoundTrip</h1>
+    <p>Travel, Gen Next Style!<br/>Connecting desire & destination.</p>
+    <div>
+      <button onclick="toggleForm('waitlistForm')">Join the Waitlist</button>
+      <button onclick="toggleForm('partnerForm')">Become a Travel Partner</button>
+    </div>
+    <div class="contact">
+      <a href="tel:+919013380880">Phone</a> |
+      <a href="mailto:yourmail@example.com">Email</a>
+    </div>
+  </div>
+
+  <form id="waitlistForm" onsubmit="submitForm(event, '/api/join-waitlist')">
+    <h2>Join the Waitlist</h2>
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <textarea name="message" placeholder="Why are you interested?" required></textarea>
+    <button type="submit">Submit</button>
+    <button type="button" onclick="toggleForm('waitlistForm')">Close</button>
+  </form>
+
+  <form id="partnerForm" onsubmit="submitForm(event, '/api/become-partner')">
+    <h2>Become a Travel Partner</h2>
+    <input type="text" name="name" placeholder="Full Name / Company" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <textarea name="message" placeholder="Tell us about your services" required></textarea>
+    <button type="submit">Submit</button>
+    <button type="button" onclick="toggleForm('partnerForm')">Close</button>
+  </form>
+
+  <script>
+    function toggleForm(formId) {
+      const form = document.getElementById(formId);
+      form.style.display = form.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    async function submitForm(event, endpoint) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert('Thanks for submitting!');
+        form.reset();
+        form.style.display = 'none';
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>
