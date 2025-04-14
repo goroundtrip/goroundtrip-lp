@@ -25,13 +25,14 @@
       .floating-icons a {
         animation: pulse 2s infinite;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transform: scale(0.64);
       }
       @keyframes pulse {
         0%, 100% {
-          transform: scale(1);
+          transform: scale(0.64);
         }
         50% {
-          transform: scale(1.15);
+          transform: scale(0.74);
         }
       }
     </style>
@@ -40,10 +41,10 @@
     <!-- Floating Contact Icons -->
     <div class="floating-icons">
       <a href="tel:+919019338080" class="bg-white text-indigo-700 p-3 rounded-full hover:bg-gray-200 transition">
-        <i data-lucide="phone" class="w-6 h-6"></i>
+        <i data-lucide="phone" class="w-5 h-5"></i>
       </a>
-      <a href="https://wa.me/+919019338080" target="_blank" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition">
-        <i data-lucide="message-circle" class="w-6 h-6"></i>
+      <a href="https://wa.me/919019338080" target="_blank" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
       </a>
     </div>
 
@@ -53,10 +54,10 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('/landing-bg.jpg');">
+    <section class="relative min-h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('/landing-bg.jpg');">
       <div class="bg-black bg-opacity-60 p-8 rounded-xl text-white text-center max-w-2xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
-          <span class="text-yellow-400">Travel,</span> <span class="text-white">the Gen Next Style</span>
+          <span class="text-yellow-300">Travel</span>, <span class="text-white">the Gen Next Style</span>
         </h1>
         <p class="text-lg mb-6">Seamlessly connecting travelers, agents and crypto payments on one revolutionary platform.</p>
         <div class="space-x-4">
