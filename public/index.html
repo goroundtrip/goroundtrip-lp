@@ -91,7 +91,7 @@
     <section id="waitlist-form" class="py-20 bg-indigo-700 text-white text-center">
       <h2 class="text-3xl font-bold mb-6">Join Our Waitlist</h2>
       <p class="mb-8">Be the first to experience the revolution in travel technology. Sign up for early access.</p>
-      <form method="POST" action="/api/waitlist" class="max-w-md mx-auto space-y-4">
+      <form method="POST" action="http://localhost:5000/api/waitlist" class="max-w-md mx-auto space-y-4">
         <input name="name" required type="text" placeholder="Your Name" class="w-full p-3 rounded text-black" />
         <input name="email" required type="email" placeholder="Your Email" class="w-full p-3 rounded text-black" />
         <button type="submit" class="bg-white text-indigo-700 font-bold py-2 px-6 rounded hover:bg-gray-200">Submit</button>
@@ -102,7 +102,7 @@
     <section id="partner-form" class="py-20 bg-gray-100 text-center">
       <h2 class="text-3xl font-bold mb-6">Become a Travel Partner</h2>
       <p class="mb-8 text-gray-600">Join our agent network and unlock enhanced earning potential with access to exclusive rates and a powerful booking platform.</p>
-      <form method="POST" action="/api/partner" class="max-w-md mx-auto space-y-4">
+      <form method="POST" action="http://localhost:5000/api/partner" class="max-w-md mx-auto space-y-4">
         <input name="agency" required type="text" placeholder="Agency Name" class="w-full p-3 rounded border" />
         <input name="contact" required type="text" placeholder="Contact Person" class="w-full p-3 rounded border" />
         <input name="email" required type="email" placeholder="Email Address" class="w-full p-3 rounded border" />
